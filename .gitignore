@@ -1,0 +1,17 @@
+﻿# 生成物里的预览用临时文件
+dist/_preview*.html
+dist/_probe*.html
+
+# 系统垃圾
+Thumbs.db
+.DS_Store
+desktop.ini
+~$*
+
+# 编辑器
+.vscode/
+.idea/
+
+# 本地临时
+*.tmp
+*.log

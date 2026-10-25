@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SITE_NAME}} · {{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<meta name="author" content="{{TEAM}}">
+<link rel="stylesheet" href="assets/style.css">
+<style>:root{--accent:{{ACCENT}}}</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#/" aria-label="{{SITE_NAME}} 首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>
+        </svg>
+      </span>
+      <span class="brand-text">{{SITE_NAME}}</span>
+    </a>
+
+    <nav class="nav" aria-label="主导航">
+      <a href="#/" data-nav="home">首页</a>
+      <a href="#/story" data-nav="story">价值</a>
+    </nav>
+
+    <div class="hdr-meta">
+      <span class="hdr-note">{{COUNT}} 个技能 · Excel 驱动</span>
+      <span class="vchip">{{VERSION}}</span>
+    </div>
+  </div>
+</header>
+
+<main id="app" tabindex="-1">
+  <noscript>
+    <div class="wrap" style="padding:80px 0">
+      <h1>需要开启 JavaScript</h1>
+      <p>本站点完全离线运行，页面内容由本地脚本渲染，请在浏览器中允许 JavaScript 后刷新。</p>
+    </div>
+  </noscript>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div class="ftr-left">
+      <strong>{{SITE_NAME}}</strong>
+      <span class="dot">·</span>
+      <span>{{VERSION}}</span>
+      <p class="ftr-note">{{FOOTER}}</p>
+    </div>
+    <div class="ftr-right">
+      <p>{{TEAM}}<span id="ftr-contact"></span></p>
+      <p class="ftr-dim">生成于 {{BUILT}}</p>
+      <p class="ftr-links"><a href="#/guide">使用说明</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button class="modal-x" data-close aria-label="关闭详情">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
