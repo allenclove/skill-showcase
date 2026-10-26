@@ -1,0 +1,59 @@
+/* ============================================================
+   09 · 宣纸 —— 米色纸感、楷体、朱红印章
+   ============================================================ */
+:root {
+  --accent: #9b2c2c;
+  --accent-ink: #7f2222;
+  --tint: #f8ece8;
+  --tint-2: #f0d9d3;
+  --ink: #1f1b16;
+  --ink-2: #3a332b;
+  --muted: #6b6153;
+  --faint: #9a8f7e;
+  --bg: #f5efe3;
+  --surface: #fbf7ee;
+  --surface-2: #f7f1e4;
+  --surface-3: #faf5ea;
+  --soft: #f0e8d9;
+  --track: #e6dcc9;
+  --rule: #ece3d3;
+  --line: #e0d5c0;
+  --line-2: #cbbda3;
+  --night: #211c16;
+  --r-sm: 2px; --r: 3px; --r-lg: 4px; --r-xl: 6px;
+  --sh-sm: none;
+  --sh-md: 0 18px 40px -30px rgba(60, 40, 20, .5);
+  --sh-lg: 0 40px 90px -40px rgba(60, 40, 20, .55);
+}
+body {
+  font-family: "Kaiti SC", "STKaiti", KaiTi, "Songti SC", serif;
+  background: var(--bg); color: var(--ink); font-size: 16px;
+}
+.hdr { background: rgba(245, 239, 227, .94); border-bottom: 1px solid var(--line); }
+.brand-mark { background: var(--accent); border-radius: 2px; box-shadow: none; }
+
+.hero { background: var(--surface); color: var(--ink); padding: 44px 0 38px; }
+.hero::before { display: none; }
+.hero::after { opacity: .22; }
+.hero-badge { border-radius: 2px; background: #fff; border-color: var(--line-2); color: var(--accent-ink); }
+.hero-title em { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.hero-desc { color: var(--muted); }
+.hs b { color: var(--ink); }
+.hs b small { color: var(--muted); }
+.hs-l { color: var(--faint); }
+
+.chip { background: transparent; border: 1px solid var(--accent); color: var(--accent); border-radius: 2px; }
+.chip-line { background: transparent; border-color: var(--line-2); color: var(--muted); }
+.card { border: 1px solid var(--line); box-shadow: none; border-radius: 4px; }
+.card-title { font-size: 19px; }
+
+.story-hero { background: var(--surface); color: var(--ink); }
+.story-hero::before { display: none; }
+.story-hero::after { opacity: .18; }
+.sh-new { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.sh-desc { color: var(--muted); }
+.sh-num { color: var(--ink); }
+.sh-num small { color: var(--muted); }
+.sh-lb { color: var(--faint); }
+.m-title { font-size: 30px; }
+.ftr { background: var(--surface); }

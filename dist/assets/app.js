@@ -522,21 +522,6 @@
     return row;
   }
 
-  function bandBlock() {
-    return el('section', { class: 'sec sec-tight' },
-      el('div', { class: 'wrap' },
-        el('div', { class: 'band' },
-          el('h2', null, text('把这份网页发给同事，'), el('br'), text('比在会上讲十遍管用。')),
-          el('p', { text: '整个站点是本地文件，双击就能看：不用登录、不用联网、不用装环境。' }),
-          el('div', { class: 'hero-actions' },
-            el('a', { class: 'btn btn-primary', href: '#/story' }, text('看价值故事'), icon('arrow')),
-            el('a', { class: 'btn btn-ghost', href: '#/guide' }, text('怎么用'))
-          )
-        )
-      )
-    );
-  }
-
   function pageHome() {
     var page = el('div', { class: 'page' });
     page.appendChild(heroBlock());
@@ -545,55 +530,157 @@
   }
 
   /* ---------------------------------------------------------- 价值页 */
+  function fmtShort(minutes) {
+    if (!minutes) return '—';
+    if (minutes < 60) return minutes + ' 分钟';
+    return (Math.round((minutes / 60) * 10) / 10) + ' 小时';
+  }
+
+  function freqText(w) {
+    if (!w) return '—';
+    if (w >= 1) return '每周 ' + (Number.isInteger(w) ? w : (Math.round(w * 10) / 10)) + ' 次';
+    return '每月 ' + Math.max(1, Math.round(w * 4.3)) + ' 次';
+  }
+
+  function statBlock(v, unit, label, digits) {
+    return el('div', null,
+      el('div', { class: 'sh-num' },
+        el('span', { 'data-countup': v, 'data-digits': digits || 0, text: '0' }),
+        el('small', { text: unit })
+      ),
+      el('div', { class: 'sh-lb', text: label })
+    );
+  }
+
+  function domainCard(d) {
+    var names = d.skills.slice(0, 3).join('、');
+    if (d.skills.length > 3) names += ' 等 ' + d.skills.length + ' 个';
+    return el('article', { class: 'domain' },
+      el('div', { class: 'domain-top' },
+        el('h3', { text: d.name }),
+        el('span', { class: 'domain-share', text: d.share + '%' })
+      ),
+      el('p', { class: 'domain-meta', text: d.count + ' 个技能 · 每周省 ' + fmtShort(d.weekly) }),
+      el('p', { class: 'domain-list', text: names }),
+      el('div', { class: 'domain-bar' }, el('i', { style: 'width:' + Math.max(4, d.share) + '%' }))
+    );
+  }
+
   function pageStory() {
-    var saved = META.savedMinutes || 0;
-    var avg = 0;
-    if (CASES.length) {
-      avg = Math.round(CASES.reduce(function (acc, c) {
-        return acc + (c.before > 0 ? ((c.before - c.now) / c.before) * 100 : 0);
-      }, 0) / CASES.length);
-    }
+    var weeklyH = (META.weeklySavedMin || 0) / 60;
+    var monthlyH = (META.monthlySavedMin || 0) / 60;
+    var manDays = META.manDays || 0;
+    var calls = META.weeklyCalls || 0;
 
     var page = el('div', { class: 'page' });
 
+    /* 头部：一句结论 + 四个数 */
     page.appendChild(el('section', { class: 'story-hero' },
       el('div', { class: 'wrap' },
-        el('span', { class: 'hero-badge' }, el('span', { class: 'pip' }), text('BEFORE / AFTER · 逐个对照')),
+        el('span', { class: 'hero-badge' }, el('span', { class: 'pip' }), text('价值 · 用数据说话')),
         el('h1', { class: 'sh-title' },
-          text('同一件活，'),
-          el('span', { class: 'sh-old', text: '以前忙半天' }),
-          text('，'),
-          el('br'),
-          text('现在'),
-          el('span', { class: 'sh-new', text: '两句话' }),
-          text('。')
+          text('同样的活，'),
+          el('span', { class: 'sh-new', text: '一周省出 ' + Math.round(weeklyH) + ' 小时' })
         ),
-        el('p', { class: 'sh-desc', text: '下面每一段都是拿真实任务掐表记的：左边把以前的步骤一条条摆出来，右边是现在真正发出去的那句话。' }),
+        el('p', { class: 'sh-desc', text: META.skillCount + ' 个技能覆盖 ' + META.bizCount + ' 个业务域，按业务真实节奏折算，每月大约省下 ' + Math.round(monthlyH) + ' 小时。下面的每个数字都能在 Excel 里改。' }),
         el('div', { class: 'sh-stats' },
-          el('div', null,
-            el('div', { class: 'sh-num' }, el('span', { 'data-countup': CASES.length, 'data-digits': 0, text: '0' }), el('small', { text: '个' })),
-            el('div', { class: 'sh-lb', text: '真实场景' })
-          ),
-          el('div', null,
-            el('div', { class: 'sh-num' }, el('span', { 'data-countup': avg, 'data-digits': 0, text: '0' }), el('small', { text: '%' })),
-            el('div', { class: 'sh-lb', text: '平均时间降幅' })
-          ),
-          el('div', null,
-            el('div', { class: 'sh-num' }, el('span', { 'data-countup': saved / 60, 'data-digits': 1, text: '0' }), el('small', { text: 'h' })),
-            el('div', { class: 'sh-lb', text: '单次合计省时' })
-          )
+          statBlock(META.bizCount, '个', '业务域'),
+          statBlock(META.skillCount, '个', '技能'),
+          statBlock(calls, '次', '每周调用'),
+          statBlock(manDays, '人天', '每月节省', 1)
         )
       )
     ));
 
+    /* 覆盖的业务场景 */
     page.appendChild(el('section', { class: 'sec-tight' },
       el('div', { class: 'wrap' },
-        el('div', { class: 'story-list' }, CASES.map(sceneCard)),
-        el('p', { class: 'sec-desc', style: 'margin-top:22px', text: '注：耗时按实际任务记录，含找模板、返工和确认环节；不同熟练度会有差异，但量级不会变。' })
+        sectionHead('COVERAGE', '覆盖 ' + META.bizCount + ' 个业务域', '从公文、会议到经营与办公交付，每个域都有能直接抄走的技能。百分比是各域占每周节省时间的比例。'),
+        el('div', { class: 'domain-grid' }, (META.domains || []).map(domainCard))
       )
     ));
 
-    page.appendChild(bandBlock());
+    /* 每个技能的账 */
+    var rows = SKILLS.filter(function (s) { return s.saved > 0; }).sort(function (a, b) { return b.monthly - a.monthly; });
+    var maxMonthly = rows.length ? rows[0].monthly : 1;
+
+    page.appendChild(el('section', { class: 'sec' },
+      el('div', { class: 'wrap' },
+        sectionHead('THE MATH', '每个技能的账', '单次省时 × 每周次数 = 你能省下的时间，按每月 4.3 周折算。'),
+        el('div', { class: 'table-wrap' },
+          el('table', { class: 'dt' },
+            el('thead', null,
+              el('tr', null,
+                el('th', { text: '技能' }),
+                el('th', { text: '业务域' }),
+                el('th', { class: 'num', text: '单次省' }),
+                el('th', { class: 'num', text: '频率' }),
+                el('th', { class: 'num', text: '每月省' })
+              )
+            ),
+            el('tbody', null, rows.map(function (s) {
+              return el('tr', null,
+                el('td', null,
+                  el('span', { class: 'dt-name', text: s.name }),
+                  s.en ? el('span', { class: 'dt-en', text: s.en }) : null
+                ),
+                el('td', null, el('span', { class: 'dt-biz', text: s.biz })),
+                el('td', { class: 'num', text: fmtShort(s.saved) }),
+                el('td', { class: 'num', text: freqText(s.weekly) }),
+                el('td', { class: 'num' },
+                  el('span', { class: 'dt-month', text: fmtShort(s.monthly) }),
+                  el('div', { class: 'dt-bar' },
+                    el('i', { style: 'width:' + Math.max(3, Math.round(s.monthly / maxMonthly * 100)) + '%' })
+                  )
+                )
+              );
+            }))
+          )
+        ),
+        el('div', { class: 'sum-strip' },
+          el('div', { class: 'sum-item' }, el('b', { text: calls }), el('span', { text: '次 / 周' })),
+          el('div', { class: 'sum-item' }, el('b', { text: Math.round(weeklyH) }), el('span', { text: '小时 / 周' })),
+          el('div', { class: 'sum-item' }, el('b', { text: Math.round(monthlyH) }), el('span', { text: '小时 / 月' })),
+          el('div', { class: 'sum-item' }, el('b', { text: manDays }), el('span', { text: '人天 / 月' }))
+        ),
+        el('p', { class: 'sec-desc', style: 'margin-top:16px', text: '口径：单次耗时来自 5 次真实任务的掐表记录（含找模板、返工、确认）；每周次数是业务预估，改 Excel 的「每周次数」会自动重算。' })
+      )
+    ));
+
+    /* 两组现场 */
+    var top = CASES.map(function (c) {
+      var s = SKILLS.filter(function (k) { return k.name === c.skill || k.id === c.skill; })[0];
+      return { c: c, m: (c.before - c.now) * (s ? s.weekly : 1) };
+    }).sort(function (a, b) { return b.m - a.m; }).slice(0, 2);
+
+    if (top.length) {
+      page.appendChild(el('section', { class: 'sec-tight' },
+        el('div', { class: 'wrap' },
+          sectionHead('ON SITE', '两组现场对照', '这两个场景贡献了大部分节省，也最容易复现。'),
+          el('div', { class: 'story-list' }, top.map(function (t) { return sceneCard(t.c); }))
+        )
+      ));
+    }
+
+    /* 下一步 */
+    page.appendChild(el('section', { class: 'sec sec-alt' },
+      el('div', { class: 'wrap' },
+        sectionHead('NEXT', '下一步计划', '从 5 个场景到全公司可用，三件事。'),
+        el('div', { class: 'gsteps' },
+          el('div', { class: 'gstep' }, el('span', { class: 'n', text: '01' }),
+            el('h3', { text: '补到 10 个高频场景' }),
+            el('p', { text: '现有 5 个之外，优先补报价单、客户回访、合同审查——都是每周必做、格式固定的活。' })),
+          el('div', { class: 'gstep' }, el('span', { class: 'n', text: '02' }),
+            el('h3', { text: '从试点到全公司' }),
+            el('p', { text: '先在 3 个部门跑一个月，把每周 ' + calls + ' 次提到 50 次，每次使用都记下省了多少时间。' })),
+          el('div', { class: 'gstep' }, el('span', { class: 'n', text: '03' }),
+            el('h3', { text: '把预估值换成真实值' }),
+            el('p', { text: '每月复盘一次：用真实调用量替换「每周次数」，让这张表从估算变成台账。' }))
+        ),
+        el('p', { class: 'sec-desc', style: 'margin-top:18px', text: '以上是目标，不是现状。' })
+      )
+    ));
+
     return page;
   }
 

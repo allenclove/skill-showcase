@@ -27,7 +27,8 @@ window.SITE_DATA = {
         "根据下面这段会议记录，整理成向上级请示的公文，请示事项是追加专项预算80万元，语言正式，结尾用「妥否，请批示」。"
       ],
       "value": "从「找模板—改抬头—调格式—核口径」的半日工，变成一次对话拿到可编辑成稿。",
-      "gain": "单次省 3.5 小时",
+      "saved": 235,
+      "weekly": 2.0,
       "tags": [
         "公文",
         "通知",
@@ -38,6 +39,9 @@ window.SITE_DATA = {
       "featured": true,
       "weight": 100,
       "row": 2,
+      "gain": "单次省 3.9 小时",
+      "weeklySaved": 470,
+      "monthly": 2021,
       "index": 1
     },
     {
@@ -55,7 +59,8 @@ window.SITE_DATA = {
         "这是1小时的评审会转写稿，帮我提炼5条关键决议和3个待办，每条标注责任人。"
       ],
       "value": "纪要从「回听录音两小时」变成「贴进去一分钟」，行动项再也不会漏在人名下。",
-      "gain": "单次省 2 小时",
+      "saved": 119,
+      "weekly": 3.0,
       "tags": [
         "会议",
         "纪要",
@@ -65,6 +70,9 @@ window.SITE_DATA = {
       "featured": true,
       "weight": 95,
       "row": 3,
+      "gain": "单次省 2 小时",
+      "weeklySaved": 357,
+      "monthly": 1535,
       "index": 2
     },
     {
@@ -81,7 +89,8 @@ window.SITE_DATA = {
         "这是各区域季度销售额，帮我选最合适的图型，生成带同比标注的图表，配色以公司蓝为主色，重点标出下滑的两个区。"
       ],
       "value": "图表从「配色试半天」变成「说清问题就出图」，一版过会。",
-      "gain": "单次省 1.5 小时",
+      "saved": 88,
+      "weekly": 2.0,
       "tags": [
         "图表",
         "可视化",
@@ -91,6 +100,9 @@ window.SITE_DATA = {
       "featured": true,
       "weight": 90,
       "row": 6,
+      "gain": "单次省 1.5 小时",
+      "weeklySaved": 176,
+      "monthly": 757,
       "index": 3
     },
     {
@@ -107,7 +119,8 @@ window.SITE_DATA = {
         "这是我们本月的收入、MRR、客户数与流失明细，帮我核对口径，算清MRR增速、净留存和获客成本，指出三个最该关注的异常。"
       ],
       "value": "把「三张表对不上、会上被问住」变成「一套口径、一页结论」。",
-      "gain": "单次省 3 小时",
+      "saved": 177,
+      "weekly": 0.25,
       "tags": [
         "经营分析",
         "MRR",
@@ -117,6 +130,9 @@ window.SITE_DATA = {
       "featured": true,
       "weight": 88,
       "row": 7,
+      "gain": "单次省 3 小时",
+      "weeklySaved": 44,
+      "monthly": 190,
       "index": 4
     },
     {
@@ -133,7 +149,8 @@ window.SITE_DATA = {
         "用公司模板做一份10页的季度复盘PPT：结论先行、每页一个观点、数据用图表讲，别写大段文字。"
       ],
       "value": "从「熬夜排版」到「半小时出可讲的稿」。",
-      "gain": "单次省 4 小时",
+      "saved": 240,
+      "weekly": 0.5,
       "tags": [
         "PPT",
         "汇报",
@@ -143,6 +160,9 @@ window.SITE_DATA = {
       "featured": true,
       "weight": 85,
       "row": 11,
+      "gain": "单次省 4 小时",
+      "weeklySaved": 120,
+      "monthly": 516,
       "index": 5
     },
     {
@@ -159,7 +179,8 @@ window.SITE_DATA = {
         "根据我这周的5条工作记录，写一份周报，分「本周交付/关键数字/风险与求助/下周计划」四块，控制在400字内，别堆形容词。"
       ],
       "value": "周报从「翻聊天记录凑字数」变成「喂记录出结构」，口径统一、领导好读。",
-      "gain": "单次省 1.5 小时",
+      "saved": 88,
+      "weekly": 1.0,
       "tags": [
         "周报",
         "月报",
@@ -169,6 +190,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 80,
       "row": 4,
+      "gain": "单次省 1.5 小时",
+      "weeklySaved": 88,
+      "monthly": 378,
       "index": 6
     },
     {
@@ -185,7 +209,8 @@ window.SITE_DATA = {
         "把这份内容做成Word：A4、仿宋三号、一级标题黑体、带页码页脚，输出可编辑文件。"
       ],
       "value": "交付物直接能发，不用再手工排版半小时。",
-      "gain": "单次省 40 分钟",
+      "saved": 40,
+      "weekly": 1.0,
       "tags": [
         "Word",
         "排版",
@@ -195,6 +220,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 75,
       "row": 9,
+      "gain": "单次省 40 分钟",
+      "weeklySaved": 40,
+      "monthly": 172,
       "index": 7
     },
     {
@@ -211,7 +239,8 @@ window.SITE_DATA = {
         "把这份流水做成月度汇总表，用SUMIFS按部门和月份汇总，加同比增长列和柱状图。"
       ],
       "value": "表格从「拉公式拉到眼花」变成「说需求出成品」。",
-      "gain": "单次省 1 小时",
+      "saved": 60,
+      "weekly": 1.0,
       "tags": [
         "Excel",
         "公式",
@@ -221,6 +250,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 72,
       "row": 10,
+      "gain": "单次省 1 小时",
+      "weeklySaved": 60,
+      "monthly": 258,
       "index": 8
     },
     {
@@ -237,7 +269,8 @@ window.SITE_DATA = {
         "围绕「县域咖啡市场是否值得进入」写一份研究报告：市场规模、竞争格局、进入方式三选一、主要风险，每个结论后面标注数据来源。"
       ],
       "value": "把「搜三天资料还写不出结论」变成「两小时出带出处的初稿」。",
-      "gain": "单次省 6 小时",
+      "saved": 360,
+      "weekly": 0.25,
       "tags": [
         "研究",
         "调研",
@@ -247,6 +280,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 70,
       "row": 5,
+      "gain": "单次省 6 小时",
+      "weeklySaved": 90,
+      "monthly": 387,
       "index": 9
     },
     {
@@ -263,7 +299,8 @@ window.SITE_DATA = {
         "帮我体检这份销售明细：缺失率、异常值、单位是否统一、有无重复订单，输出问题清单和修复建议。"
       ],
       "value": "避免「分析三天，结论因脏数据作废」这种最贵的返工。",
-      "gain": "单次省 2 小时",
+      "saved": 120,
+      "weekly": 0.5,
       "tags": [
         "数据质量",
         "清洗",
@@ -273,6 +310,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 60,
       "row": 8,
+      "gain": "单次省 2 小时",
+      "weeklySaved": 60,
+      "monthly": 258,
       "index": 10
     },
     {
@@ -289,7 +329,8 @@ window.SITE_DATA = {
         "把这个Word转成PDF，检查页码和表格有没有跨页断裂，有问题先告诉我。"
       ],
       "value": "对外交付不再「转一次修一次」。",
-      "gain": "单次省 20 分钟",
+      "saved": 20,
+      "weekly": 2.0,
       "tags": [
         "PDF",
         "转换",
@@ -299,6 +340,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 50,
       "row": 12,
+      "gain": "单次省 20 分钟",
+      "weeklySaved": 40,
+      "monthly": 172,
       "index": 11
     },
     {
@@ -315,7 +359,8 @@ window.SITE_DATA = {
         "把这个PPT每页渲染成图片，我检查一下有没有文字溢出和错位。"
       ],
       "value": "交付前自查一分钟，省掉一轮返工和一次尴尬。",
-      "gain": "单次省 15 分钟",
+      "saved": 15,
+      "weekly": 1.0,
       "tags": [
         "预览",
         "渲染",
@@ -325,6 +370,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 45,
       "row": 13,
+      "gain": "单次省 15 分钟",
+      "weeklySaved": 15,
+      "monthly": 64,
       "index": 12
     },
     {
@@ -341,7 +389,8 @@ window.SITE_DATA = {
         "重算这个工作簿的所有公式，把结果和手工核算的差异逐项列出来。"
       ],
       "value": "数字可信，汇报时不被追问第二遍。",
-      "gain": "单次省 30 分钟",
+      "saved": 30,
+      "weekly": 0.5,
       "tags": [
         "公式",
         "重算",
@@ -351,6 +400,9 @@ window.SITE_DATA = {
       "featured": false,
       "weight": 40,
       "row": 14,
+      "gain": "单次省 30 分钟",
+      "weeklySaved": 15,
+      "monthly": 64,
       "index": 13
     }
   ],
@@ -498,7 +550,7 @@ window.SITE_DATA = {
     ]
   },
   "meta": {
-    "generated": "2026-10-26 01:06",
+    "generated": "2026-10-26 23:30",
     "skillCount": 13,
     "caseCount": 5,
     "bizCount": 6,
@@ -518,6 +570,73 @@ window.SITE_DATA = {
       "文档生成",
       "质量校验",
       "格式转换"
+    ],
+    "weeklyCalls": 15.0,
+    "weeklySavedMin": 1575,
+    "monthlySavedMin": 6774,
+    "manDays": 14.1,
+    "domains": [
+      {
+        "name": "公文行政",
+        "count": 1,
+        "weekly": 470,
+        "skills": [
+          "公文写作"
+        ],
+        "share": 30
+      },
+      {
+        "name": "会议协作",
+        "count": 1,
+        "weekly": 357,
+        "skills": [
+          "会议纪要"
+        ],
+        "share": 23
+      },
+      {
+        "name": "办公交付",
+        "count": 6,
+        "weekly": 290,
+        "skills": [
+          "PPT 演示",
+          "Word 文档",
+          "Excel 表格",
+          "文档转 PDF",
+          "文档预览",
+          "表格重算"
+        ],
+        "share": 18
+      },
+      {
+        "name": "数据洞察",
+        "count": 2,
+        "weekly": 236,
+        "skills": [
+          "数据图表",
+          "数据体检"
+        ],
+        "share": 15
+      },
+      {
+        "name": "经营管理",
+        "count": 2,
+        "weekly": 132,
+        "skills": [
+          "经营指标",
+          "工作汇报"
+        ],
+        "share": 8
+      },
+      {
+        "name": "市场研究",
+        "count": 1,
+        "weekly": 90,
+        "skills": [
+          "研究报告"
+        ],
+        "share": 6
+      }
     ]
   }
 };

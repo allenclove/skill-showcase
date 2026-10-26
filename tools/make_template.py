@@ -44,8 +44,7 @@ SKILLS = [
             "帮我写一份《关于开展2026年度安全生产大检查的通知》，单位是XX集团，发文对象为各子公司，重点检查消防、用电、危化品三项，10月30日前完成自查并上报。",
             "根据下面这段会议记录，整理成向上级请示的公文，请示事项是追加专项预算80万元，语言正式，结尾用「妥否，请批示」。",
         ],
-        value="从「找模板—改抬头—调格式—核口径」的半日工，变成一次对话拿到可编辑成稿。",
-        gain="单次省 3.5 小时", tags="公文,通知,请示,红头", status="已上线", top=True, weight=100,
+        value="从「找模板—改抬头—调格式—核口径」的半日工，变成一次对话拿到可编辑成稿。", tags="公文,通知,请示,红头", status="已上线", top=True, weight=100,
     ),
     dict(
         sid="meeting-recap", name="会议纪要", biz="会议协作", func="写作与提炼",
@@ -56,8 +55,7 @@ SKILLS = [
             "把下面的会议记录整理成纪要，按「议题—讨论要点—决议—行动项（负责人/截止时间）」输出，没提到的信息不要编。",
             "这是1小时的评审会转写稿，帮我提炼5条关键决议和3个待办，每条标注责任人。",
         ],
-        value="纪要从「回听录音两小时」变成「贴进去一分钟」，行动项再也不会漏在人名下。",
-        gain="单次省 2 小时", tags="会议,纪要,行动项", status="已上线", top=True, weight=95,
+        value="纪要从「回听录音两小时」变成「贴进去一分钟」，行动项再也不会漏在人名下。", tags="会议,纪要,行动项", status="已上线", top=True, weight=95,
     ),
     dict(
         sid="work-report-writer", name="工作汇报", biz="经营管理", func="写作与提炼",
@@ -67,8 +65,7 @@ SKILLS = [
         prompts=[
             "根据我这周的5条工作记录，写一份周报，分「本周交付/关键数字/风险与求助/下周计划」四块，控制在400字内，别堆形容词。",
         ],
-        value="周报从「翻聊天记录凑字数」变成「喂记录出结构」，口径统一、领导好读。",
-        gain="单次省 1.5 小时", tags="周报,月报,述职", status="已上线", top=False, weight=80,
+        value="周报从「翻聊天记录凑字数」变成「喂记录出结构」，口径统一、领导好读。", tags="周报,月报,述职", status="已上线", top=False, weight=80,
     ),
     dict(
         sid="research-writer", name="研究报告", biz="市场研究", func="写作与提炼",
@@ -78,8 +75,7 @@ SKILLS = [
         prompts=[
             "围绕「县域咖啡市场是否值得进入」写一份研究报告：市场规模、竞争格局、进入方式三选一、主要风险，每个结论后面标注数据来源。",
         ],
-        value="把「搜三天资料还写不出结论」变成「两小时出带出处的初稿」。",
-        gain="单次省 6 小时", tags="研究,调研,决策", status="试点", top=False, weight=70,
+        value="把「搜三天资料还写不出结论」变成「两小时出带出处的初稿」。", tags="研究,调研,决策", status="试点", top=False, weight=70,
     ),
     dict(
         sid="data-viz-gen", name="数据图表", biz="数据洞察", func="数据分析",
@@ -89,8 +85,7 @@ SKILLS = [
         prompts=[
             "这是各区域季度销售额，帮我选最合适的图型，生成带同比标注的图表，配色以公司蓝为主色，重点标出下滑的两个区。",
         ],
-        value="图表从「配色试半天」变成「说清问题就出图」，一版过会。",
-        gain="单次省 1.5 小时", tags="图表,可视化,汇报", status="已上线", top=True, weight=90,
+        value="图表从「配色试半天」变成「说清问题就出图」，一版过会。", tags="图表,可视化,汇报", status="已上线", top=True, weight=90,
     ),
     dict(
         sid="saas-metrics-coach", name="经营指标", biz="经营管理", func="数据分析",
@@ -100,8 +95,7 @@ SKILLS = [
         prompts=[
             "这是我们本月的收入、MRR、客户数与流失明细，帮我核对口径，算清MRR增速、净留存和获客成本，指出三个最该关注的异常。",
         ],
-        value="把「三张表对不上、会上被问住」变成「一套口径、一页结论」。",
-        gain="单次省 3 小时", tags="经营分析,MRR,留存", status="已上线", top=True, weight=88,
+        value="把「三张表对不上、会上被问住」变成「一套口径、一页结论」。", tags="经营分析,MRR,留存", status="已上线", top=True, weight=88,
     ),
     dict(
         sid="dataset-health-audit", name="数据体检", biz="数据洞察", func="数据分析",
@@ -111,8 +105,7 @@ SKILLS = [
         prompts=[
             "帮我体检这份销售明细：缺失率、异常值、单位是否统一、有无重复订单，输出问题清单和修复建议。",
         ],
-        value="避免「分析三天，结论因脏数据作废」这种最贵的返工。",
-        gain="单次省 2 小时", tags="数据质量,清洗,校验", status="已上线", top=False, weight=60,
+        value="避免「分析三天，结论因脏数据作废」这种最贵的返工。", tags="数据质量,清洗,校验", status="已上线", top=False, weight=60,
     ),
     dict(
         sid="office-docx", name="Word 文档", biz="办公交付", func="文档生成",
@@ -122,8 +115,7 @@ SKILLS = [
         prompts=[
             "把这份内容做成Word：A4、仿宋三号、一级标题黑体、带页码页脚，输出可编辑文件。",
         ],
-        value="交付物直接能发，不用再手工排版半小时。",
-        gain="单次省 40 分钟", tags="Word,排版,交付", status="已上线", top=False, weight=75,
+        value="交付物直接能发，不用再手工排版半小时。", tags="Word,排版,交付", status="已上线", top=False, weight=75,
     ),
     dict(
         sid="office-xlsx", name="Excel 表格", biz="办公交付", func="文档生成",
@@ -133,8 +125,7 @@ SKILLS = [
         prompts=[
             "把这份流水做成月度汇总表，用SUMIFS按部门和月份汇总，加同比增长列和柱状图。",
         ],
-        value="表格从「拉公式拉到眼花」变成「说需求出成品」。",
-        gain="单次省 1 小时", tags="Excel,公式,透视表", status="已上线", top=False, weight=72,
+        value="表格从「拉公式拉到眼花」变成「说需求出成品」。", tags="Excel,公式,透视表", status="已上线", top=False, weight=72,
     ),
     dict(
         sid="office-pptx", name="PPT 演示", biz="办公交付", func="文档生成",
@@ -144,8 +135,7 @@ SKILLS = [
         prompts=[
             "用公司模板做一份10页的季度复盘PPT：结论先行、每页一个观点、数据用图表讲，别写大段文字。",
         ],
-        value="从「熬夜排版」到「半小时出可讲的稿」。",
-        gain="单次省 4 小时", tags="PPT,汇报,模板", status="已上线", top=True, weight=85,
+        value="从「熬夜排版」到「半小时出可讲的稿」。", tags="PPT,汇报,模板", status="已上线", top=True, weight=85,
     ),
     dict(
         sid="office-export-pdf", name="文档转 PDF", biz="办公交付", func="格式转换",
@@ -155,8 +145,7 @@ SKILLS = [
         prompts=[
             "把这个Word转成PDF，检查页码和表格有没有跨页断裂，有问题先告诉我。",
         ],
-        value="对外交付不再「转一次修一次」。",
-        gain="单次省 20 分钟", tags="PDF,转换,对外", status="已上线", top=False, weight=50,
+        value="对外交付不再「转一次修一次」。", tags="PDF,转换,对外", status="已上线", top=False, weight=50,
     ),
     dict(
         sid="office-render", name="文档预览", biz="办公交付", func="质量校验",
@@ -166,8 +155,7 @@ SKILLS = [
         prompts=[
             "把这个PPT每页渲染成图片，我检查一下有没有文字溢出和错位。",
         ],
-        value="交付前自查一分钟，省掉一轮返工和一次尴尬。",
-        gain="单次省 15 分钟", tags="预览,渲染,质检", status="试点", top=False, weight=45,
+        value="交付前自查一分钟，省掉一轮返工和一次尴尬。", tags="预览,渲染,质检", status="试点", top=False, weight=45,
     ),
     dict(
         sid="office-recalculate", name="表格重算", biz="办公交付", func="质量校验",
@@ -177,8 +165,7 @@ SKILLS = [
         prompts=[
             "重算这个工作簿的所有公式，把结果和手工核算的差异逐项列出来。",
         ],
-        value="数字可信，汇报时不被追问第二遍。",
-        gain="单次省 30 分钟", tags="公式,重算,校验", status="规划", top=False, weight=40,
+        value="数字可信，汇报时不被追问第二遍。", tags="公式,重算,校验", status="规划", top=False, weight=40,
     ),
 ]
 
@@ -250,7 +237,8 @@ HELP = [
     ("技能清单", "适用场景", "否", "什么时候该用它，写在详情抽屉里。"),
     ("技能清单", "提示词示例", "是", "可直接复制的完整指令。多个示例用单独一行 --- 分隔，页面会拆成多个复制块。"),
     ("技能清单", "提升价值", "是", "一句话讲清价值，最好带数字或对比。"),
-    ("技能清单", "量化收益", "否", "短标签，如「单次省 2 小时」，显示在卡片和详情页。"),
+    ("技能清单", "单次省时(分钟)", "否", "纯数字。一次任务能省多少分钟，用于算账和生成「单次省 X」标签；留空则该技能不进汇总。"),
+    ("技能清单", "每周次数", "否", "纯数字，可以是小数（0.25 = 每月一次）。写业务真实节奏，价值页用它算每周/每月节省。"),
     ("技能清单", "标签", "否", "逗号分隔，参与搜索。"),
     ("技能清单", "状态", "否", "已上线 / 试点 / 规划，三色标识，默认已上线。"),
     ("技能清单", "推荐位", "否", "预留字段：填「是」会在首页优先展示。"),
@@ -283,6 +271,40 @@ EN = {
     "office-export-pdf": "PDF Export",
     "office-render": "Doc Preview",
     "office-recalculate": "Sheet Recalculate",
+}
+
+
+# 单次节省分钟数 / 每周使用次数（用于价值页算账）
+SAVED = {
+    "gov-doc-writing": 235,
+    "meeting-recap": 119,
+    "work-report-writer": 88,
+    "research-writer": 360,
+    "data-viz-gen": 88,
+    "saas-metrics-coach": 177,
+    "dataset-health-audit": 120,
+    "office-docx": 40,
+    "office-xlsx": 60,
+    "office-pptx": 240,
+    "office-export-pdf": 20,
+    "office-render": 15,
+    "office-recalculate": 30,
+}
+
+WEEKLY = {
+    "gov-doc-writing": 2,
+    "meeting-recap": 3,
+    "work-report-writer": 1,
+    "research-writer": 0.25,
+    "data-viz-gen": 2,
+    "saas-metrics-coach": 0.25,
+    "dataset-health-audit": 0.5,
+    "office-docx": 1,
+    "office-xlsx": 1,
+    "office-pptx": 0.5,
+    "office-export-pdf": 2,
+    "office-render": 1,
+    "office-recalculate": 0.5,
 }
 
 
@@ -321,23 +343,23 @@ def main():
     ws = wb.create_sheet("技能清单")
     rows = [[
         s["sid"], s["name"], EN[s["sid"]], s["desc"], s["biz"], s["func"], s["owner_biz"], s["owner_it"],
-        s["scenario"], "\n---\n".join(s["prompts"]), s["value"], s["gain"], s["tags"],
-        s["status"], "是" if s["top"] else "否", s["weight"],
+        s["scenario"], "\n---\n".join(s["prompts"]), SAVED[s["sid"]], WEEKLY[s["sid"]],
+        s["value"], s["tags"], s["status"], "是" if s["top"] else "否", s["weight"],
     ] for s in SKILLS]
     style_sheet(
         ws,
         ["编号", "技能名称", "英文名称", "一句话简介", "业务分类", "功能分类", "业务负责人", "IT负责人",
-         "适用场景", "提示词示例", "提升价值", "量化收益", "标签", "状态", "推荐位", "排序权重"],
+         "适用场景", "提示词示例", "单次省时(分钟)", "每周次数", "提升价值", "标签", "状态", "推荐位", "排序权重"],
         rows,
-        [18, 15, 26, 44, 12, 12, 11, 10, 38, 60, 38, 15, 20, 10, 9, 10],
+        [18, 15, 26, 44, 12, 12, 11, 10, 38, 60, 14, 10, 38, 20, 10, 9, 10],
     )
     dv_status = DataValidation(type="list", formula1='"已上线,试点,规划"', allow_blank=True)
     dv_status.error = "只能填 已上线 / 试点 / 规划"
     ws.add_data_validation(dv_status)
-    dv_status.add(f"N2:N{len(rows) + 1}")
+    dv_status.add(f"O2:O{len(rows) + 1}")
     dv_top = DataValidation(type="list", formula1='"是,否"', allow_blank=True)
     ws.add_data_validation(dv_top)
-    dv_top.add(f"O2:O{len(rows) + 1}")
+    dv_top.add(f"P2:P{len(rows) + 1}")
 
     ws = wb.create_sheet("价值案例")
     rows = [[

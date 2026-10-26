@@ -1,0 +1,62 @@
+/* ============================================================
+   04 · 深空 —— 暗色底、冷蓝光晕、玻璃质感
+   ============================================================ */
+:root {
+  --accent: #38bdf8;
+  --accent-ink: #7dd3fc;
+  --tint: #0d1f2d;
+  --tint-2: #122a3c;
+  --ink: #e9f0fa;
+  --ink-2: #c7d4e6;
+  --muted: #93a3ba;
+  --faint: #6a7b92;
+  --bg: #070b12;
+  --surface: #0e1522;
+  --surface-2: #0b111c;
+  --surface-3: #0b111c;
+  --soft: #131c2a;
+  --track: #1a2434;
+  --rule: #16202e;
+  --line: #1e2938;
+  --line-2: #2a3a4f;
+  --night: #05080f;
+  --r-sm: 10px; --r: 12px; --r-lg: 14px; --r-xl: 18px;
+  --sh-sm: 0 1px 2px rgba(0, 0, 0, .5);
+  --sh-md: 0 18px 40px -18px rgba(0, 0, 0, .9);
+  --sh-lg: 0 40px 90px -30px rgba(0, 0, 0, .95);
+}
+body { background: var(--bg); color: var(--ink); }
+.hdr { background: rgba(7, 11, 18, .8); border-bottom: 1px solid var(--line); }
+.brand-mark { background: linear-gradient(140deg, #0ea5e9, #6366f1); box-shadow: 0 0 26px -6px rgba(56, 189, 248, .65); }
+
+.hero { background: radial-gradient(120% 90% at 20% 0%, #0b1a2c 0%, #05080f 58%); }
+.hero-badge { border-color: rgba(125, 211, 252, .28); color: #9fc4e8; background: rgba(56, 189, 248, .06); }
+.hero-title em { background: linear-gradient(100deg, #7dd3fc, #a78bfa); -webkit-background-clip: text; background-clip: text; }
+.hero-desc { color: #9fb0c8; }
+.hs b { color: #fff; }
+.hs b small { color: #7dd3fc; }
+.hs-l { color: #7d8fa8; }
+
+.card { background: linear-gradient(180deg, #0f1725, #0c131f); border-color: #1c2a3d; }
+.card:hover { border-color: rgba(56, 189, 248, .4); box-shadow: 0 22px 50px -26px rgba(56, 189, 248, .35); }
+.card-title { color: #eaf4ff; }
+.card-gain { background: #0d2a22; border-color: #14503f; color: #6ee7b7; }
+.status.ok { color: #34d399; }
+
+.dt th { background: #0b111c; }
+.dt td { border-bottom-color: #16202e; }
+.dt-name, .dt-month { color: #eaf4ff; }
+.sum-item { background: #0e1522; }
+.domain { background: #0e1522; }
+
+.modal-card { background: #0c1420; border: 1px solid #1e2c3f; }
+.modal-bd { background: rgba(2, 5, 10, .74); }
+.m-prompt { background: #0b111c; border-color: #1e2c3f; }
+.m-prompt-hd { background: #0e1522; }
+.m-prompt-text { color: #cfe3ff; }
+.m-value { background: linear-gradient(135deg, #0f1f2e, #0c1420); }
+
+.story-hero { background: radial-gradient(120% 100% at 70% 0%, #0b1a2c, #05080f); }
+.ftr { background: #070b12; }
+.pane-before { background: #0b111c; }
+.pane-now { background: linear-gradient(180deg, #0d1a26, #0c1420 62%); }

@@ -1,0 +1,66 @@
+/* ============================================================
+   10 · 粗野 —— 黑白黄、粗边框、硬投影
+   ============================================================ */
+:root {
+  --accent: #000;
+  --accent-ink: #000;
+  --tint: #ffe14d;
+  --tint-2: #ffe14d;
+  --ink: #000;
+  --ink-2: #111;
+  --muted: #333;
+  --faint: #666;
+  --bg: #fff;
+  --surface: #fff;
+  --surface-2: #fff;
+  --surface-3: #fff;
+  --soft: #ffe14d;
+  --track: #eee;
+  --rule: #000;
+  --line: #000;
+  --line-2: #000;
+  --night: #ffe14d;
+  --r-sm: 0; --r: 0; --r-lg: 0; --r-xl: 0;
+  --sh-sm: 4px 4px 0 #000;
+  --sh-md: 6px 6px 0 #000;
+  --sh-lg: 10px 10px 0 #000;
+}
+body { background: #fff; color: #000; }
+.hdr { background: #fff; border-bottom: 2px solid #000; }
+.brand-mark { background: #000; border-radius: 0; box-shadow: none; }
+.nav a { border-radius: 0; font-weight: 700; }
+.nav a.active { background: #000; color: #fff; }
+
+.hero { background: #ffe14d; color: #000; padding: 44px 0 38px; border-bottom: 2px solid #000; }
+.hero::before, .hero::after { display: none; }
+.hero-badge { border: 2px solid #000; border-radius: 0; background: #fff; color: #000; font-weight: 700; }
+.hero-title { font-weight: 800; letter-spacing: -.03em; }
+.hero-title em { background: none; color: #000; -webkit-text-fill-color: #000; text-decoration: underline; text-decoration-thickness: 2px; }
+.hero-desc { color: #111; }
+.hs b { color: #000; }
+.hs b small { color: #000; }
+.hs-l { color: #222; font-weight: 700; }
+
+.card { border: 2px solid #000; box-shadow: 4px 4px 0 #000; }
+.card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; }
+.chip { background: #000; color: #fff; border-radius: 0; font-weight: 700; }
+.chip-line { background: #fff; color: #000; border: 2px solid #000; }
+.card-gain { background: #ffe14d; border: 2px solid #000; color: #000; border-radius: 0; }
+.btn-copy { border: 2px solid #000; border-radius: 0; font-weight: 700; }
+.search { border: 2px solid #000; border-radius: 0; }
+.fchip { border: 2px solid #000; border-radius: 0; font-weight: 600; }
+.fchip.on { background: #000; color: #fff; }
+
+.dt th { border-bottom: 2px solid #000; color: #000; font-weight: 800; }
+.dt td { border-bottom: 1px solid #000; }
+.sum-item { background: #fff; }
+.domain { border: 2px solid #000; box-shadow: 4px 4px 0 #000; }
+
+.modal-card { border: 2px solid #000; border-radius: 0; box-shadow: 10px 10px 0 #000; }
+.story-hero { background: #ffe14d; color: #000; border-bottom: 2px solid #000; }
+.story-hero::before, .story-hero::after { display: none; }
+.sh-new { background: none; color: #000; -webkit-text-fill-color: #000; text-decoration: underline; text-decoration-thickness: 2px; }
+.sh-desc { color: #111; }
+.sh-num { color: #000; }
+.sh-num small { color: #000; }
+.sh-lb { color: #222; }

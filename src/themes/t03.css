@@ -1,0 +1,68 @@
+/* ============================================================
+   03 · 瑞士 —— 纯白、黑线、零圆角、字号拉开对比
+   ============================================================ */
+:root {
+  --accent: #e11d48;
+  --accent-ink: #b3123a;
+  --tint: #fff0f3;
+  --tint-2: #ffe0e7;
+  --ink: #0a0a0a;
+  --ink-2: #1f1f1f;
+  --muted: #555;
+  --faint: #8a8a8a;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f7f7f7;
+  --surface-3: #fafafa;
+  --soft: #f2f2f2;
+  --track: #e6e6e6;
+  --rule: #e8e8e8;
+  --line: #111;
+  --line-2: #111;
+  --night: #0a0a0a;
+  --r-sm: 0; --r: 0; --r-lg: 0; --r-xl: 0;
+  --sh-sm: none;
+  --sh-md: 4px 4px 0 #111;
+  --sh-lg: 0 0 0 1px #111;
+}
+body { font-family: "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif; background: #fff; }
+.hdr { background: rgba(255, 255, 255, .94); border-bottom: 2px solid #111; }
+.brand-mark { background: #111; border-radius: 0; box-shadow: none; }
+.nav a { border-radius: 0; }
+.nav a.active { background: #111; color: #fff; }
+
+.hero { background: #fff; color: #111; padding: 44px 0 36px; }
+.hero::before, .hero::after { display: none; }
+.hero-badge {
+  border-radius: 0; border-color: #111; background: #fff; color: #111;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+}
+.hero-title { font-size: clamp(30px, 4vw, 46px); letter-spacing: -.04em; font-weight: 800; }
+.hero-title em { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.hero-desc { color: #444; max-width: 36em; }
+.hs b { color: #111; }
+.hs b small { color: #666; }
+.hs-l { color: #666; text-transform: uppercase; letter-spacing: .1em; font-size: 10.5px; }
+
+.chip { border-radius: 0; background: #111; color: #fff; font-size: 10.5px; letter-spacing: .06em; }
+.chip-line { background: #fff; color: #111; border: 1px solid #111; }
+.card { border: 1px solid #111; border-radius: 0; box-shadow: none; }
+.card:hover { transform: none; box-shadow: 4px 4px 0 #111; }
+.card-title { font-weight: 700; letter-spacing: -.02em; }
+.card-en { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.card-gain { border-radius: 0; border-color: #111; color: #111; background: #fff; }
+
+.btn-copy, .search, .fchip { border-radius: 0; border-color: #111; }
+.dt th { border-bottom: 2px solid #111; text-transform: uppercase; letter-spacing: .14em; }
+.dt td { border-bottom: 1px solid #ddd; }
+
+.story-hero { background: #fff; color: #111; }
+.story-hero::before, .story-hero::after { display: none; }
+.sh-new { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.sh-desc { color: #444; }
+.sh-num { color: #111; }
+.sh-num small { color: #666; }
+.sh-lb { color: #666; }
+.modal-card { border-radius: 0; }
+.sum-item { background: #fff; }

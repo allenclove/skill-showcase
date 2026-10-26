@@ -1,0 +1,63 @@
+/* ============================================================
+   02 · 编辑部 —— 纸感底色、宋体标题、细线分隔、零圆角
+   ============================================================ */
+:root {
+  --accent: #b23a2e;
+  --accent-ink: #8f2c22;
+  --tint: #fbf0ec;
+  --tint-2: #f5e2dc;
+  --ink: #17140f;
+  --ink-2: #312b23;
+  --muted: #6a6053;
+  --faint: #9c9182;
+  --bg: #faf7f0;
+  --surface: #fffdf8;
+  --surface-2: #f7f1e6;
+  --surface-3: #fbf6ec;
+  --soft: #f2ebde;
+  --track: #e8dfcd;
+  --rule: #ece3d2;
+  --line: #e3d9c6;
+  --line-2: #cfc2aa;
+  --night: #1c1812;
+  --r-sm: 2px; --r: 3px; --r-lg: 4px; --r-xl: 6px;
+  --sh-sm: none;
+  --sh-md: 0 14px 34px -26px rgba(40, 26, 12, .55);
+  --sh-lg: 0 40px 80px -40px rgba(30, 20, 10, .45);
+}
+body {
+  font-family: "Songti SC", "Source Han Serif SC", "Noto Serif SC", Georgia, "SimSun", serif;
+  font-size: 16px;
+  letter-spacing: .01em;
+}
+.hdr { background: color-mix(in srgb, var(--bg) 92%, transparent); border-bottom: 1px solid var(--line); }
+.brand-mark { background: var(--ink); border-radius: 3px; box-shadow: none; }
+.nav a.active { background: transparent; color: var(--accent-ink); text-decoration: underline; text-underline-offset: 6px; }
+
+.hero { background: var(--surface); color: var(--ink); padding: 46px 0 40px; }
+.hero::before, .hero::after { display: none; }
+.hero-badge { background: transparent; border-color: var(--line-2); color: var(--muted); border-radius: 2px; }
+.hero-title { font-size: clamp(28px, 3.4vw, 40px); letter-spacing: 0; font-weight: 700; }
+.hero-title em { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.hero-desc { color: var(--muted); }
+.hs b { color: var(--ink); }
+.hs b small { color: var(--muted); }
+.hs-l { color: var(--faint); }
+
+.chip { background: transparent; border: 1px solid color-mix(in srgb, var(--accent) 35%, #fff); color: var(--accent-ink); border-radius: 2px; }
+.chip-line { background: transparent; border-color: var(--line-2); color: var(--muted); }
+.card { border: 1px solid var(--line); box-shadow: none; border-radius: 4px; }
+.card:hover { border-color: var(--line-2); box-shadow: 0 10px 30px -24px rgba(30, 20, 10, .5); }
+.card-title { font-size: 19px; letter-spacing: 0; }
+.card-en { font-family: Georgia, serif; font-style: italic; text-transform: none; letter-spacing: 0; }
+.dt th { font-weight: 400; font-style: italic; letter-spacing: .06em; }
+
+.story-hero { background: var(--surface); color: var(--ink); }
+.story-hero::before, .story-hero::after { display: none; }
+.sh-new { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.sh-desc { color: var(--muted); }
+.sh-num { color: var(--ink); }
+.sh-num small { color: var(--muted); }
+.sh-lb { color: var(--faint); }
+.m-title { letter-spacing: 0; }
+.ftr { background: var(--surface); }

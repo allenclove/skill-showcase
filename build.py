@@ -58,6 +58,28 @@ def to_int(value, field: str, where: str) -> int:
         return 0
 
 
+def to_float(value, field: str, where: str) -> float:
+    raw = cell_str(value)
+    if raw == "":
+        return 0.0
+    try:
+        return float(raw)
+    except ValueError:
+        errors.append(f"{where}: 《{field}》不是数字 -> {raw!r}")
+        return 0.0
+
+
+def gain_label(minutes: int) -> str:
+    """把分钟数变成「单次省 X 小时 / X 分钟」。"""
+    if minutes <= 0:
+        return ""
+    if minutes < 60:
+        return f"单次省 {minutes} 分钟"
+    hours = minutes / 60
+    text = f"{hours:.1f}".rstrip("0").rstrip(".")
+    return f"单次省 {text} 小时"
+
+
 def split_multi(text: str) -> list[str]:
     """把一格里用单独一行 --- 分隔的多段内容拆开。"""
     parts = re.split(r"(?m)^\s*[-—–]{3,}\s*$", text)
@@ -145,8 +167,8 @@ if not re.fullmatch(r"#[0-9a-fA-F]{6}", cfg["主题色"]):
 
 # --- 技能清单
 SKILL_COLS = ["编号", "技能名称", "英文名称", "一句话简介", "业务分类", "功能分类", "业务负责人",
-              "IT负责人", "适用场景", "提示词示例", "提升价值", "量化收益", "标签",
-              "状态", "推荐位", "排序权重"]
+              "IT负责人", "适用场景", "提示词示例", "单次省时(分钟)", "每周次数",
+              "提升价值", "标签", "状态", "推荐位", "排序权重"]
 warn_missing_columns(wb[SHEET_SKILLS], SHEET_SKILLS, SKILL_COLS)
 
 skills = []
@@ -178,13 +200,19 @@ for row in read_rows(wb[SHEET_SKILLS], SHEET_SKILLS):
         "scenario": cell_str(row.get("适用场景")),
         "prompts": prompts,
         "value": need(row, "提升价值", SHEET_SKILLS),
-        "gain": cell_str(row.get("量化收益")),
+        "saved": to_int(row.get("单次省时(分钟)"), "单次省时(分钟)", f"技能清单 第{row['__row__']}行"),
+        "weekly": to_float(row.get("每周次数"), "每周次数", f"技能清单 第{row['__row__']}行"),
         "tags": split_tags(cell_str(row.get("标签"))),
         "status": status,
         "featured": cell_str(row.get("推荐位")).lower() in ("是", "y", "yes", "true", "1"),
         "weight": to_int(row.get("排序权重"), "排序权重", f"技能清单 第{row['__row__']}行"),
         "row": row["__row__"],
     })
+
+for s in skills:
+    s["gain"] = gain_label(s["saved"])
+    s["weeklySaved"] = round(s["saved"] * s["weekly"])
+    s["monthly"] = round(s["saved"] * s["weekly"] * 4.3)
 
 skills.sort(key=lambda s: (-s["weight"], s["row"]))
 for i, s in enumerate(skills, start=1):
@@ -244,6 +272,24 @@ for s in skills:
 biz_cats.sort(key=lambda c: (-sum(1 for s in skills if s["biz"] == c), c))
 func_cats.sort(key=lambda c: (-sum(1 for s in skills if s["func"] == c), c))
 
+# --- 价值页的账：按「单次省时 × 每周次数」汇总
+weekly_calls = sum(s["weekly"] for s in skills)
+weekly_saved = sum(s["saved"] * s["weekly"] for s in skills)
+monthly_saved = round(weekly_saved * 4.3)
+
+domain_map: dict[str, dict] = {}
+for s in skills:
+    d = domain_map.setdefault(s["biz"], {"name": s["biz"], "count": 0, "weekly": 0.0, "skills": []})
+    d["count"] += 1
+    d["weekly"] += s["saved"] * s["weekly"]
+    d["skills"].append(s["name"])
+
+domains = sorted(domain_map.values(), key=lambda d: -d["weekly"])
+for d in domains:
+    raw = d["weekly"]
+    d["weekly"] = round(raw)
+    d["share"] = round(raw / weekly_saved * 100) if weekly_saved else 0
+
 data = {
     "site": {
         "name": cfg["站点名称"],
@@ -269,6 +315,11 @@ data = {
         "savedMinutes": skills_total_minutes,
         "bizCategories": biz_cats,
         "funcCategories": func_cats,
+        "weeklyCalls": weekly_calls,
+        "weeklySavedMin": round(weekly_saved),
+        "monthlySavedMin": monthly_saved,
+        "manDays": round(monthly_saved / 60 / 8, 1),
+        "domains": domains,
     },
 }
 
@@ -310,10 +361,73 @@ shutil.copy2(SRC / "app.js", DIST / "assets" / "app.js")
 js = "window.SITE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n"
 (DIST / "assets" / "data.js").write_text(js, encoding="utf-8")
 
+# ---------------------------------------------------------------- UI 方案预览
+THEMES = [
+    ("t01", "01 产品蓝（当前）"),
+    ("t02", "02 编辑部 · 宋体纸感"),
+    ("t03", "03 瑞士 · 黑线极简"),
+    ("t04", "04 深空 · 暗色霓虹"),
+    ("t05", "05 终端 · 等宽荧光"),
+    ("t06", "06 奶咖 · 柔和暖白"),
+    ("t07", "07 玻璃 · 渐变磨砂"),
+    ("t08", "08 看板 · 紧凑数据"),
+    ("t09", "09 宣纸 · 国风朱红"),
+    ("t10", "10 粗野 · 黑白硬投影"),
+]
+
+PREVIEW_BAR = """
+<div id="skinbar">
+  <span>UI 方案</span>
+  <select id="skinpick" aria-label="切换 UI 方案">
+__OPTIONS__
+  </select>
+  <a href="index.html">看原版</a>
+</div>
+<style>
+#skinbar{position:fixed;left:18px;bottom:18px;z-index:300;display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;background:rgba(12,17,26,.93);color:#cfd8e3;font:600 12px/1 "Microsoft YaHei",sans-serif;box-shadow:0 18px 40px -18px rgba(0,0,0,.7)}
+#skinbar span{color:#8fa0b5;letter-spacing:.06em}
+#skinbar select{appearance:none;background:#1b2432;color:#eaf0f8;border:1px solid #2c3a4d;border-radius:8px;padding:7px 10px;font:inherit;cursor:pointer;outline:none}
+#skinbar select:hover{border-color:#3f5470}
+#skinbar a{color:#9fb0c9;text-decoration:none;padding:6px 4px}
+#skinbar a:hover{color:#fff}
+@media print{#skinbar{display:none}}
+</style>
+<script>
+(function(){
+  var link=document.getElementById('skin'), sel=document.getElementById('skinpick');
+  function apply(id){
+    link.setAttribute('href','themes/'+id+'.css');
+    sel.value=id;
+    try{ history.replaceState(null,'','?skin='+id+location.hash); }catch(e){}
+  }
+  sel.addEventListener('change',function(){ apply(sel.value); });
+  var m=location.search.match(/skin=(t\\d\\d)/);
+  if(m) apply(m[1]);
+})();
+</script>
+"""
+
+theme_dir = SRC / "themes"
+if theme_dir.exists():
+    (DIST / "themes").mkdir(exist_ok=True)
+    for f in sorted(theme_dir.glob("t*.css")):
+        shutil.copy2(f, DIST / "themes" / f.name)
+
+    options = "\n".join(
+        f'    <option value="{tid}">{label}</option>' for tid, label in THEMES
+    )
+    preview = template.replace(
+        "</head>",
+        '<link id="skin" rel="stylesheet" href="themes/t01.css">\n</head>',
+    )
+    preview = preview.replace("</body>", PREVIEW_BAR.replace("__OPTIONS__", options) + "\n</body>")
+    (DIST / "ui-preview.html").write_text(preview, encoding="utf-8")
+
 total = sum(f.stat().st_size for f in DIST.rglob("*") if f.is_file())
 print("[OK] 生成完成")
 print(f"     技能 {len(skills)} 个 / 业务分类 {len(biz_cats)} 个 / 功能分类 {len(func_cats)} 个 / 案例 {len(cases)} 个")
 print(f"     单次合计省时 {skills_total_minutes} 分钟（约 {skills_total_minutes / 60:.1f} 小时）")
+print(f"     每周 {weekly_calls:g} 次调用 / 每周省 {weekly_saved / 60:.1f} 小时 / 每月省 {monthly_saved / 60:.1f} 小时（约 {monthly_saved / 60 / 8:.1f} 人天）")
 print(f"     输出 dist/  {total / 1024:.0f} KB")
 print(f"     入口 {DIST / 'index.html'}")
 for w in warnings:

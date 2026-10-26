@@ -1,0 +1,51 @@
+/* ============================================================
+   06 · 奶咖 —— 暖白、大圆角、柔和投影
+   ============================================================ */
+:root {
+  --accent: #c2703d;
+  --accent-ink: #a0552a;
+  --tint: #fdf1e8;
+  --tint-2: #f8e2d2;
+  --ink: #332a24;
+  --ink-2: #4a3d34;
+  --muted: #7b6a5c;
+  --faint: #a5947f;
+  --bg: #f7f2ec;
+  --surface: #fffdfa;
+  --surface-2: #fbf5ee;
+  --surface-3: #fdf8f3;
+  --soft: #f3ebe2;
+  --track: #eadfd2;
+  --rule: #efe5da;
+  --line: #f0e6da;
+  --line-2: #d9c8b6;
+  --night: #2c231d;
+  --r-sm: 12px; --r: 16px; --r-lg: 20px; --r-xl: 26px;
+  --sh-sm: 0 2px 6px rgba(120, 90, 60, .05);
+  --sh-md: 0 18px 40px -22px rgba(120, 90, 60, .38);
+  --sh-lg: 0 40px 80px -40px rgba(90, 65, 40, .5);
+}
+body { background: var(--bg); color: var(--ink); }
+.hdr { background: rgba(247, 242, 236, .86); border-bottom: 1px solid var(--line); }
+.brand-mark { background: linear-gradient(140deg, #e0a06a, #c2703d); border-radius: 14px; box-shadow: 0 8px 18px -8px rgba(194, 112, 61, .6); }
+
+.hero { background: linear-gradient(180deg, #fdf8f1, #f7f2ec); color: var(--ink); }
+.hero::before, .hero::after { display: none; }
+.hero-badge { background: #fff; border-color: var(--line-2); color: var(--muted); }
+.hero-title em { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.hero-desc { color: var(--muted); }
+.hs b { color: var(--ink); }
+.hs b small { color: var(--muted); }
+.hs-l { color: var(--faint); }
+
+.card { border-color: #f0e6da; box-shadow: 0 10px 26px -20px rgba(120, 90, 60, .5); }
+.card:hover { box-shadow: 0 22px 44px -24px rgba(120, 90, 60, .55); }
+.card-gain { background: #f2f8f0; border-color: #d8ecd2; }
+
+.story-hero { background: linear-gradient(180deg, #fdf8f1, #f3ebe2); color: var(--ink); }
+.story-hero::before, .story-hero::after { display: none; }
+.sh-new { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.sh-desc { color: var(--muted); }
+.sh-num { color: var(--ink); }
+.sh-num small { color: var(--muted); }
+.sh-lb { color: var(--faint); }

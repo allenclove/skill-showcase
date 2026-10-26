@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skill 展厅 · 「一句话」把专业活儿做完</title>
+<meta name="description" content="13 个经过业务验证的智能体技能，覆盖公文、会议、经营、数据与办公交付。找得到、抄得走、用得上——把「这事得干两天」变成「这句话我发你」。">
+<meta name="author" content="智能体平台 · 能力建设组">
+<link rel="stylesheet" href="assets/style.css">
+<style>:root{--accent:#2563eb}</style>
+<link id="skin" rel="stylesheet" href="themes/t01.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#/" aria-label="Skill 展厅 首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>
+        </svg>
+      </span>
+      <span class="brand-text">Skill 展厅</span>
+    </a>
+
+    <nav class="nav" aria-label="主导航">
+      <a href="#/" data-nav="home">首页</a>
+      <a href="#/story" data-nav="story">价值</a>
+    </nav>
+
+    <div class="hdr-meta">
+      <span class="hdr-note">13 个技能 · Excel 驱动</span>
+      <span class="vchip">v1.0</span>
+    </div>
+  </div>
+</header>
+
+<main id="app" tabindex="-1">
+  <noscript>
+    <div class="wrap" style="padding:80px 0">
+      <h1>需要开启 JavaScript</h1>
+      <p>本站点完全离线运行，页面内容由本地脚本渲染，请在浏览器中允许 JavaScript 后刷新。</p>
+    </div>
+  </noscript>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div class="ftr-left">
+      <strong>Skill 展厅</strong>
+      <span class="dot">·</span>
+      <span>v1.0</span>
+      <p class="ftr-note">数据维护在《技能展厅.xlsx》，双击「一键生成.cmd」即可更新本页。</p>
+    </div>
+    <div class="ftr-right">
+      <p>智能体平台 · 能力建设组<span id="ftr-contact"></span></p>
+      <p class="ftr-dim">生成于 2026-10-26 23:30</p>
+      <p class="ftr-links"><a href="#/guide">使用说明</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button class="modal-x" data-close aria-label="关闭详情">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+
+<div id="skinbar">
+  <span>UI 方案</span>
+  <select id="skinpick" aria-label="切换 UI 方案">
+    <option value="t01">01 产品蓝（当前）</option>
+    <option value="t02">02 编辑部 · 宋体纸感</option>
+    <option value="t03">03 瑞士 · 黑线极简</option>
+    <option value="t04">04 深空 · 暗色霓虹</option>
+    <option value="t05">05 终端 · 等宽荧光</option>
+    <option value="t06">06 奶咖 · 柔和暖白</option>
+    <option value="t07">07 玻璃 · 渐变磨砂</option>
+    <option value="t08">08 看板 · 紧凑数据</option>
+    <option value="t09">09 宣纸 · 国风朱红</option>
+    <option value="t10">10 粗野 · 黑白硬投影</option>
+  </select>
+  <a href="index.html">看原版</a>
+</div>
+<style>
+#skinbar{position:fixed;left:18px;bottom:18px;z-index:300;display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;background:rgba(12,17,26,.93);color:#cfd8e3;font:600 12px/1 "Microsoft YaHei",sans-serif;box-shadow:0 18px 40px -18px rgba(0,0,0,.7)}
+#skinbar span{color:#8fa0b5;letter-spacing:.06em}
+#skinbar select{appearance:none;background:#1b2432;color:#eaf0f8;border:1px solid #2c3a4d;border-radius:8px;padding:7px 10px;font:inherit;cursor:pointer;outline:none}
+#skinbar select:hover{border-color:#3f5470}
+#skinbar a{color:#9fb0c9;text-decoration:none;padding:6px 4px}
+#skinbar a:hover{color:#fff}
+@media print{#skinbar{display:none}}
+</style>
+<script>
+(function(){
+  var link=document.getElementById('skin'), sel=document.getElementById('skinpick');
+  function apply(id){
+    link.setAttribute('href','themes/'+id+'.css');
+    sel.value=id;
+    try{ history.replaceState(null,'','?skin='+id+location.hash); }catch(e){}
+  }
+  sel.addEventListener('change',function(){ apply(sel.value); });
+  var m=location.search.match(/skin=(t\d\d)/);
+  if(m) apply(m[1]);
+})();
+</script>
+
+</body>
+</html>

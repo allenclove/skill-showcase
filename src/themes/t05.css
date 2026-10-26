@@ -1,0 +1,78 @@
+/* ============================================================
+   05 · 终端 —— 等宽字体、荧光绿、硬边
+   ============================================================ */
+:root {
+  --accent: #34d399;
+  --accent-ink: #6ee7b7;
+  --tint: #0e1a14;
+  --tint-2: #12241a;
+  --ink: #d6ffd9;
+  --ink-2: #b9f6c3;
+  --muted: #7fd694;
+  --faint: #4f9a63;
+  --bg: #070907;
+  --surface: #0c100c;
+  --surface-2: #0a0e0a;
+  --surface-3: #0a0e0a;
+  --soft: #121a12;
+  --track: #182418;
+  --rule: #152015;
+  --line: #1d2b1d;
+  --line-2: #2a3d2a;
+  --night: #050705;
+  --r-sm: 0; --r: 0; --r-lg: 0; --r-xl: 0;
+  --sh-sm: none;
+  --sh-md: none;
+  --sh-lg: 0 0 0 1px #2a3d2a;
+}
+body {
+  font-family: "Cascadia Mono", Consolas, "Courier New", "Microsoft YaHei", monospace;
+  background: var(--bg); color: var(--ink); font-size: 14px; letter-spacing: .01em;
+}
+.hdr { background: rgba(5, 7, 5, .92); border-bottom: 1px solid var(--line-2); }
+.brand-mark { background: #0c100c; border: 1px solid var(--accent); border-radius: 0; color: var(--accent); box-shadow: none; }
+.nav a { border-radius: 0; color: #7fd694; }
+.nav a.active { background: #0e1a14; color: var(--accent); border: 1px solid #1d3a26; }
+
+.hero { background: #050705; color: var(--ink); }
+.hero::before, .hero::after { display: none; }
+.hero-badge { border-radius: 0; border-color: #2a3d2a; background: #0a0e0a; color: #7fd694; font-size: 11px; }
+.hero-title { font-weight: 600; letter-spacing: -.02em; }
+.hero-title em { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.hero-desc { color: #7fd694; }
+.hs b { color: var(--accent); }
+.hs b small { color: #4f9a63; }
+.hs-l { color: #4f9a63; }
+
+.card { background: #0c100c; border: 1px solid #1d2b1d; border-radius: 0; }
+.card:hover { transform: none; border-color: var(--accent); box-shadow: 0 0 0 1px #1d3a26; }
+.card-title { color: var(--ink); }
+.chip { background: #0e1a14; color: var(--accent); border: 1px solid #1d3a26; border-radius: 0; }
+.chip-line { background: transparent; border-color: #2a3d2a; color: #7fd694; }
+.card-gain { background: #0e1a14; border-color: #1d3a26; color: var(--accent); border-radius: 0; }
+
+.btn-copy { background: #0c100c; border-color: #2a3d2a; color: #b9f6c3; border-radius: 0; }
+.search { background: #0a0e0a; border-color: #2a3d2a; border-radius: 0; }
+.search input { color: var(--ink); }
+.fchip { background: #0c100c; border-color: #2a3d2a; color: #7fd694; border-radius: 0; }
+.fchip.on { background: var(--accent); color: #04120a; border-color: var(--accent); }
+
+.dt th { background: #0a0e0a; color: #4f9a63; border-bottom-color: #2a3d2a; }
+.dt td { border-bottom-color: #152015; color: #b9f6c3; }
+.dt-name, .dt-month { color: var(--accent); }
+.sum-item { background: #0c100c; }
+.domain { background: #0c100c; }
+
+.modal-card { background: #0a0e0a; border: 1px solid #2a3d2a; border-radius: 0; }
+.m-prompt { background: #0a0e0a; border-color: #2a3d2a; }
+.m-prompt-text { color: #b9f6c3; }
+
+.story-hero { background: #050705; color: var(--ink); }
+.story-hero::before, .story-hero::after { display: none; }
+.sh-new { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.sh-desc { color: #7fd694; }
+.sh-num { color: var(--accent); }
+.sh-num small { color: #4f9a63; }
+.sh-lb { color: #4f9a63; }
+.pane-before { background: #0a0e0a; }
+.ftr { background: #070907; }
